@@ -5,7 +5,7 @@ const pool = new Pool({
     host: 'localhost',
     database: 'property_management',
     password: '',
-    port: 8888,
+    port: 5432,
 });
 
 // Test the connection
