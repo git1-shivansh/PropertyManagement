@@ -2,39 +2,37 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../config/db');
 
-// Get all properties
+// Get all property details
 router.get('/', async (req, res) => {
     try {
-        const result = await pool.query(`
-            SELECT p.*, pd.numbedroom, pd.numbathroom 
-            FROM property p
-            LEFT JOIN propertydetails pd ON p.propertyid = pd.property_propertyid
-            ORDER BY p.propertyid DESC
-        `);
+        const result = await pool.query('SELECT * FROM propertydetails');
         res.json(result.rows);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
-// Get property by ID
+// Get property details by property ID
 router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const result = await pool.query('SELECT * FROM property WHERE propertyid = $1', [id]);
+        const result = await pool.query(
+            'SELECT * FROM propertydetails WHERE property_propertyid = $1',
+            [id]
+        );
         res.json(result.rows[0]);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
-// Add new property
+// Add property details
 router.post('/', async (req, res) => {
     try {
-        const { propertyid, address, price, ownerid } = req.body;
+        const { property_propertyid, numbathroom, numbedroom } = req.body;
         const result = await pool.query(
-            'INSERT INTO property (propertyid, address, price, ownerid) VALUES ($1, $2, $3, $4) RETURNING *',
-            [propertyid, address, price, ownerid]
+            'INSERT INTO propertydetails (property_propertyid, numbathroom, numbedroom) VALUES ($1, $2, $3) RETURNING *',
+            [property_propertyid, numbathroom, numbedroom]
         );
         res.json(result.rows[0]);
     } catch (err) {
