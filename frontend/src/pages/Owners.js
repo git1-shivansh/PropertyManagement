@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getOwners, getOwnerProperties, updateOwner } from '../services/api';
-import '../Owner.css';
+import '../shared.css';
 
 function Owners() {
     const [owners, setOwners] = useState([]);
@@ -18,12 +18,12 @@ function Owners() {
         try {
             const ownersData = await getOwners();
             setOwners(Array.isArray(ownersData) ? ownersData : []);
-            
+
             const propertiesPromises = ownersData.map(async (owner) => {
                 const properties = await getOwnerProperties(owner.ownerid);
                 return [owner.ownerid, properties];
             });
-            
+
             const propertiesResults = await Promise.all(propertiesPromises);
             const propertiesMap = Object.fromEntries(propertiesResults);
             setOwnerProperties(propertiesMap);
@@ -85,11 +85,10 @@ function Owners() {
     if (error) return <div className="error">{error}</div>;
 
     return (
-        <div className="owners-container">
-            <div className="owners-header">
+        <div className="container">
+            <div className="header">
                 <h1>Property Owners</h1>
             </div>
-
             <div className="table-container">
                 <table>
                     <thead>
@@ -116,7 +115,6 @@ function Owners() {
                                                 name="ownerid"
                                                 value={editForm.ownerid}
                                                 onChange={handleEditInputChange}
-                                                className="edit-input"
                                             />
                                         ) : (
                                             owner.ownerid
@@ -129,7 +127,6 @@ function Owners() {
                                                 name="ownername"
                                                 value={editForm.ownername}
                                                 onChange={handleEditInputChange}
-                                                className="edit-input"
                                             />
                                         ) : (
                                             owner.ownername
@@ -142,7 +139,6 @@ function Owners() {
                                                 name="email"
                                                 value={editForm.email}
                                                 onChange={handleEditInputChange}
-                                                className="edit-input"
                                             />
                                         ) : (
                                             owner.email
@@ -150,9 +146,9 @@ function Owners() {
                                     </td>
                                     <td>
                                         {ownerProperties[owner.ownerid]?.length > 0 ? (
-                                            <div className="properties-list">
+                                            <div>
                                                 {ownerProperties[owner.ownerid].map(property => (
-                                                    <div key={property.propertyid} className="property-item">
+                                                    <div key={property.propertyid}>
                                                         {property.propertyid}
                                                     </div>
                                                 ))}
@@ -163,29 +159,27 @@ function Owners() {
                                     </td>
                                     <td>
                                         {editingOwner === owner.ownerid ? (
-                                            <div className="edit-actions">
-                                                <button 
-                                                    className="save-btn"
+                                            <>
+                                                <button
+                                                    className="button save-btn"
                                                     onClick={() => handleUpdate(owner.ownerid)}
                                                 >
                                                     Save
                                                 </button>
-                                                <button 
-                                                    className="cancel-btn"
+                                                <button
+                                                    className="button cancel-btn"
                                                     onClick={handleCancelEdit}
                                                 >
                                                     Cancel
                                                 </button>
-                                            </div>
+                                            </>
                                         ) : (
-                                            <div className="action-buttons">
-                                                <button 
-                                                    className="edit-btn"
-                                                    onClick={() => handleEdit(owner)}
-                                                >
-                                                    Edit
-                                                </button>
-                                            </div>
+                                            <button
+                                                className="button edit-btn"
+                                                onClick={() => handleEdit(owner)}
+                                            >
+                                                Edit
+                                            </button>
                                         )}
                                     </td>
                                 </tr>

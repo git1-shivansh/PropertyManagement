@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getRenters, addRenter, deleteRenter } from '../services/api';
-import '../Renters.css';
+import '../shared.css';
 
 function Renters() {
     const [renters, setRenters] = useState([]);
@@ -55,7 +55,7 @@ function Renters() {
 
     const handleDelete = async (renterId) => {
         if (!window.confirm('Are you sure you want to delete this renter?')) return;
-        
+
         try {
             await deleteRenter(renterId);
             await fetchRenters();
@@ -68,13 +68,11 @@ function Renters() {
     if (error) return <div className="error">{error}</div>;
 
     return (
-        <div className="renters-container">
-            <div className="renters-header">
+        <div className="container">
+            <div className="header">
                 <h1>Property Renters</h1>
-    
             </div>
-
-            <div className="add-renter-form">
+            <div className="form-container">
                 <h2>Add New Renter</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -110,11 +108,12 @@ function Renters() {
                             placeholder="Property ID"
                             required
                         />
-                        <button type="submit">Add Renter</button>
+                        <button type="submit" className="button add-btn">
+                            Add Renter
+                        </button>
                     </div>
                 </form>
             </div>
-
             <div className="table-container">
                 <table>
                     <thead>
@@ -139,8 +138,8 @@ function Renters() {
                                     <td>{renter.email}</td>
                                     <td>{renter.propertyid}</td>
                                     <td>
-                                        <button 
-                                            className="delete-btn"
+                                        <button
+                                            className="button delete-btn"
                                             onClick={() => handleDelete(renter.renterid)}
                                         >
                                             Delete

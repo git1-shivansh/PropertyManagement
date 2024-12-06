@@ -1,0 +1,137 @@
+/* General Container and Header Styles */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin: 0;
+}
+
+/* Form Container Styles */
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form-container h2 {
+    margin-top: 0;
+    color: #2d3748;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.form-group input, .form-group button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Table Container and Table Styles */
+.table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Button Styles */
+.add-btn, .edit-btn, .save-btn, .filter-button, .cancel-btn, .delete-btn {
+    background-color: #3182ce; /* Blue background */
+    color: white; /* White text */
+    padding: 0.75rem 1.5rem; /* Consistent padding */
+    border: none; /* No border */
+    border-radius: 0.5rem; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    font-weight: 500; /* Bold font */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: inline-flex; /* Inline-flex for alignment */
+    align-items: center; /* Center content */
+    gap: 0.5rem; /* Spacing for icon alignment */
+    transition: background-color 0.2s, transform 0.2s; /* Smooth transition effects */
+}
+
+/* Hover Effects */
+.add-btn:hover, .edit-btn:hover, .save-btn:hover, .filter-button:hover, .cancel-btn:hover, .delete-btn:hover {
+    background-color: #2c5282; /* Darker blue */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Cancel Button Specific Styles */
+.cancel-btn {
+    background-color: #3182ce; /* Light grey */
+    color: #ffffff; /* Darker grey text */
+    margin-left: 10px; /* Space between Cancel and Save buttons */
+}
+
+.cancel-btn:hover {
+    background-color: #cbd5e0; /* Slightly darker grey */
+    color: #2d3748; /* Darker text */
+}
+
+/* Align Cancel and Save Buttons */
+.button-row {
+    display: flex; /* Horizontal alignment */
+    justify-content: flex-start; /* Align buttons to the left (or change as needed) */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+/* Delete Button Specific Styles */
+.delete-btn {
+    background-color: #dc3545; /* Red for delete actions */
+}
+
+.delete-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Error and Loading Messages */
+.error, .loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+.error {
+    color: #dc3545;
+}
