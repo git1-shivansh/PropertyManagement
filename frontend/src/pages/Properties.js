@@ -259,7 +259,7 @@ function Properties() {
                                             property.numbathroom
                                         )}
                                     </td>
-                                    <td>
+                                    <td className="action-buttons">
                                         {editingProperty === property.propertyid ? (
                                             <>
                                                 <button
@@ -276,7 +276,7 @@ function Properties() {
                                                 </button>
                                             </>
                                         ) : (
-                                            <>
+                                            <div className="button-group">
                                                 <button
                                                     className="button edit-btn"
                                                     onClick={() => handleEdit(property)}
@@ -289,7 +289,7 @@ function Properties() {
                                                 >
                                                     Delete
                                                 </button>
-                                            </>
+                                            </div>
                                         )}
                                     </td>
                                 </tr>

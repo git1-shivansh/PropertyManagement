@@ -90,7 +90,6 @@ tr:hover {
     transition: background-color 0.2s, transform 0.2s; /* Smooth transition effects */
 }
 
-/* Hover Effects */
 .add-btn:hover, .edit-btn:hover, .save-btn:hover, .filter-button:hover, .cancel-btn:hover, .delete-btn:hover {
     background-color: #2c5282; /* Darker blue */
     transform: translateY(-2px); /* Lift effect */
@@ -98,31 +97,22 @@ tr:hover {
 
 /* Cancel Button Specific Styles */
 .cancel-btn {
-    background-color: #3182ce; /* Light grey */
-    color: #ffffff; /* Darker grey text */
+    background-color: #3182ce; /* Same color as Save button */
+    color: white; /* White text */
+    padding: 0.75rem 1.5rem; /* Consistent padding */
+    border: none; /* No border */
+    border-radius: 0.5rem; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    font-weight: 500; /* Bold font */
+    cursor: pointer; /* Pointer cursor on hover */
     margin-left: 10px; /* Space between Cancel and Save buttons */
+    transition: background-color 0.2s, transform 0.2s; /* Smooth transition effects */
 }
 
-.cancel-btn:hover {
-    background-color: #cbd5e0; /* Slightly darker grey */
-    color: #2d3748; /* Darker text */
-}
-
-/* Align Cancel and Save Buttons */
-.button-row {
-    display: flex; /* Horizontal alignment */
-    justify-content: flex-start; /* Align buttons to the left (or change as needed) */
+/* Align Buttons in Action Rows */
+.action-buttons {
+    display: flex;
     gap: 10px; /* Space between buttons */
-    margin-top: 20px;
-}
-
-/* Delete Button Specific Styles */
-.delete-btn {
-    background-color: #dc3545; /* Red for delete actions */
-}
-
-.delete-btn:hover {
-    background-color: #c82333; /* Darker red on hover */
 }
 
 /* Error and Loading Messages */
