@@ -276,7 +276,7 @@ function Properties() {
                                                 </button>
                                             </>
                                         ) : (
-                                            <div className="button-group">
+                                            <div className="action-buttons">
                                                 <button
                                                     className="button edit-btn"
                                                     onClick={() => handleEdit(property)}
