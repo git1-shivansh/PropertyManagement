@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:3001/api';
 
+// Fetch all properties
 export const getProperties = async () => {
     try {
         const response = await axios.get(`${API_URL}/properties`);
@@ -45,7 +46,7 @@ export const deleteProperty = async (propertyId) => {
     }
 };
 
-// Other existing functions...
+// Fetch all owners
 export const getOwners = async () => {
     try {
         const response = await axios.get(`${API_URL}/owners`);
@@ -56,6 +57,7 @@ export const getOwners = async () => {
     }
 };
 
+// Fetch properties of a specific owner
 export const getOwnerProperties = async (ownerId) => {
     try {
         const response = await axios.get(`${API_URL}/owners/${ownerId}/properties`);
@@ -66,6 +68,7 @@ export const getOwnerProperties = async (ownerId) => {
     }
 };
 
+// Update owner information
 export const updateOwner = async (ownerId, ownerData) => {
     try {
         const response = await axios.put(`${API_URL}/owners/${ownerId}`, ownerData);
@@ -76,6 +79,7 @@ export const updateOwner = async (ownerId, ownerData) => {
     }
 };
 
+// Fetch all renters
 export const getRenters = async () => {
     try {
         const response = await axios.get(`${API_URL}/renters`);
@@ -86,6 +90,7 @@ export const getRenters = async () => {
     }
 };
 
+// Add a new renter
 export const addRenter = async (renterData) => {
     try {
         const response = await axios.post(`${API_URL}/renters`, renterData);
@@ -96,6 +101,7 @@ export const addRenter = async (renterData) => {
     }
 };
 
+// Delete a renter
 export const deleteRenter = async (renterId) => {
     try {
         const response = await axios.delete(`${API_URL}/renters/${renterId}`);

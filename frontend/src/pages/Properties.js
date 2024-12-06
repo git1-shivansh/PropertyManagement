@@ -199,96 +199,21 @@ function Properties() {
                         ) : (
                             properties.map((property) => (
                                 <tr key={property.propertyid}>
-                                    <td>
-                                        {editingProperty === property.propertyid ? (
-                                            <input
-                                                type="text"
-                                                name="propertyid"
-                                                value={editForm.propertyid}
-                                                onChange={handleEditInputChange}
-                                            />
-                                        ) : (
-                                            property.propertyid
-                                        )}
-                                    </td>
-                                    <td>
-                                        {editingProperty === property.propertyid ? (
-                                            <input
-                                                type="text"
-                                                name="address"
-                                                value={editForm.address}
-                                                onChange={handleEditInputChange}
-                                            />
-                                        ) : (
-                                            property.address
-                                        )}
-                                    </td>
-                                    <td>
-                                        {editingProperty === property.propertyid ? (
-                                            <input
-                                                type="text"
-                                                name="price"
-                                                value={editForm.price}
-                                                onChange={handleEditInputChange}
-                                            />
-                                        ) : (
-                                            `$${property.price}`
-                                        )}
-                                    </td>
-                                    <td>
-                                        {editingProperty === property.propertyid ? (
-                                            <input
-                                                type="text"
-                                                name="numbedroom"
-                                                value={editForm.numbedroom}
-                                                onChange={handleEditInputChange}
-                                            />
-                                        ) : (
-                                            property.numbedroom
-                                        )}
-                                    </td>
-                                    <td>
-                                        {editingProperty === property.propertyid ? (
-                                            <input
-                                                type="text"
-                                                name="numbathroom"
-                                                value={editForm.numbathroom}
-                                                onChange={handleEditInputChange}
-                                            />
-                                        ) : (
-                                            property.numbathroom
-                                        )}
-                                    </td>
+                                    <td>{editingProperty === property.propertyid ? <input type="text" name="propertyid" value={editForm.propertyid} onChange={handleEditInputChange} /> : property.propertyid}</td>
+                                    <td>{editingProperty === property.propertyid ? <input type="text" name="address" value={editForm.address} onChange={handleEditInputChange} /> : property.address}</td>
+                                    <td>{editingProperty === property.propertyid ? <input type="text" name="price" value={editForm.price} onChange={handleEditInputChange} /> : `$${property.price}`}</td>
+                                    <td>{editingProperty === property.propertyid ? <input type="text" name="numbedroom" value={editForm.numbedroom} onChange={handleEditInputChange} /> : property.numbedroom}</td>
+                                    <td>{editingProperty === property.propertyid ? <input type="text" name="numbathroom" value={editForm.numbathroom} onChange={handleEditInputChange} /> : property.numbathroom}</td>
                                     <td className="action-buttons">
                                         {editingProperty === property.propertyid ? (
                                             <>
-                                                <button
-                                                    className="button save-btn"
-                                                    onClick={() => handleUpdate(property.propertyid)}
-                                                >
-                                                    Save
-                                                </button>
-                                                <button
-                                                    className="button cancel-btn"
-                                                    onClick={handleCancelEdit}
-                                                >
-                                                    Cancel
-                                                </button>
+                                                <button className="button save-btn" onClick={() => handleUpdate(property.propertyid)}>Save</button>
+                                                <button className="button cancel-btn" onClick={handleCancelEdit}>Cancel</button>
                                             </>
                                         ) : (
                                             <div className="action-buttons">
-                                                <button
-                                                    className="button edit-btn"
-                                                    onClick={() => handleEdit(property)}
-                                                >
-                                                    Edit
-                                                </button>
-                                                <button
-                                                    className="button delete-btn"
-                                                    onClick={() => handleDeleteProperty(property.propertyid)}
-                                                >
-                                                    Delete
-                                                </button>
+                                                <button className="button edit-btn" onClick={() => handleEdit(property)}>Edit</button>
+                                                <button className="button delete-btn" onClick={() => handleDeleteProperty(property.propertyid)}>Delete</button>
                                             </div>
                                         )}
                                     </td>

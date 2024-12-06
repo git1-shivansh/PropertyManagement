@@ -220,7 +220,7 @@ const PropertyDashboard = () => {
 
   const renderDetailsModal = () => {
     if (!showDetailsModal || !selectedProperty) return null;
-
+  
     return (
       <div className="modal-overlay">
         <div className="modal-content details-modal">
@@ -244,14 +244,14 @@ const PropertyDashboard = () => {
                 }}
               />
             </div>
-
+  
             <div className="details-address">
               <h3>{selectedProperty.address}</h3>
               <p className="property-style">{selectedProperty.details.style} Style Home</p>
             </div>
-
+  
             <div className="details-grid">
-                <div className="detail-item">
+                <div className="detail-item"> 
                     <Home size={20} />
                     <span>{selectedProperty.numbedroom} Bedrooms</span>
                 </div>
@@ -264,7 +264,7 @@ const PropertyDashboard = () => {
                     <span>{selectedProperty.details.squareFeet.toLocaleString()} sq ft</span>
                 </div>
             </div>
-
+  
             <div className="details-section">
               <h4>Featured Amenities</h4>
               <ul className="amenities-list">
@@ -273,7 +273,7 @@ const PropertyDashboard = () => {
                 ))}
               </ul>
             </div>
-
+  
             <div className="details-section">
               <h4>Premium Features</h4>
               <ul className="features-list">
@@ -282,7 +282,7 @@ const PropertyDashboard = () => {
                 ))}
               </ul>
             </div>
-
+  
             <div className="details-section">
               <div className="systems-info">
                 <p><strong>Heating:</strong> {selectedProperty.details.heating}</p>
@@ -290,7 +290,7 @@ const PropertyDashboard = () => {
                 <p><strong>Parking:</strong> {selectedProperty.details.parkingSpaces} Car Garage</p>
               </div>
             </div>
-
+  
             <div className="details-section">
               <button 
                 className="contact-button full-width"
