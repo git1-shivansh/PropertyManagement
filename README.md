@@ -1,4 +1,4 @@
-# Property Management Application
+# EstateEase - Property Management Application
 
 ## Overview
 This Property Management Application is a full-stack web platform designed to help property managers efficiently manage properties, owners, and renters. The application provides an intuitive interface for adding, editing, and deleting property records, as well as filtering listings based on key criteria such as price and number of bedrooms.
